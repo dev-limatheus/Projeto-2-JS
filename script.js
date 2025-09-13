@@ -2,11 +2,15 @@ const form = document.getElementById('formAtividade');
 const imgAprovado = '<img src="./images/aprovado.png" alt="imoji celebrando" />';
 const imgReprovado = '<img src="./images/reprovado.png" alt="imoji triste" />';
 
-
 linhas=' '
 form.addEventListener('submit', function(e){
     e.preventDefault();
 
+    adicionaLinha();
+    atualizaTabela();
+});
+
+function adicionaLinha() {
     const inputNomeAtividade = document.getElementById('nome-atividade');
     const inputNotaAtividade = document.getElementById('nota-atividade');
 
@@ -23,4 +27,9 @@ form.addEventListener('submit', function(e){
 
     inputNomeAtividade.value='';
     inputNotaAtividade.value='';
-})
+}
+
+function atualizaTabela(){
+    const corpoTabela = document.querySelector('tbody');
+    corpoTabela.innerHTML= linhas;  
+}
